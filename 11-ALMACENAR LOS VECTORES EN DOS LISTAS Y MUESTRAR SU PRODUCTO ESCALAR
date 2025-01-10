@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ProductoEscalar
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Definimos los vectores como listas
+            List<int> vector1 = new List<int> { 1, 2, 3 };
+            List<int> vector2 = new List<int> { -1, 0, 2 };
+
+            // Calculamos el producto escalar utilizando LINQ
+            int productoEscalar = vector1.Zip(vector2, (x, y) => x * y).Sum();
+
+            // Mostramos el resultado
+            Console.WriteLine("El producto escalar de los vectores es: " + productoEscalar);
+        }
+    }
+}
