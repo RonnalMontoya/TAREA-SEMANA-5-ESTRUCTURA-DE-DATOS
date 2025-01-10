@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+
+namespace Asignaturas
+{
+    class Asignatura
+    {
+        public string Nombre { get; set; }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Crear una lista de asignaturas
+            List<Asignatura> asignaturas = new List<Asignatura>();
+
+            // Agregar asignaturas a la lista
+            asignaturas.Add(new Asignatura { Nombre = "Programación" });
+            asignaturas.Add(new Asignatura { Nombre = "Literatura" });
+            asignaturas.Add(new Asignatura { Nombre = "Lenguaje" });
+            asignaturas.Add(new Asignatura { Nombre = "Estadísticas" });
+            asignaturas.Add(new Asignatura { Nombre = "Inglés" });
+
+            // Mostrar las asignaturas
+            Console.WriteLine("Asignaturas del curso:");
+            foreach (Asignatura asignatura in asignaturas)
+            {
+                Console.WriteLine(asignatura.Nombre);
+            }
+        }
+    }
+}
