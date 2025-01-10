@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ContadorVocales
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Ingrese una palabra:");
+            string palabra = Console.ReadLine().ToLower(); // Convertimos a minúsculas para facilitar la comparación
+
+            // Diccionario para almacenar la frecuencia de cada vocal
+            Dictionary<char, int> frecuenciaVocales = new Dictionary<char, int>()
+            {
+                {'a', 0}, {'e', 0}, {'i', 0}, {'o', 0}, {'u', 0}
+            };
+
+            // Contar las vocales
+            foreach (char letra in palabra)
+            {
+                if (frecuenciaVocales.ContainsKey(letra))
+                {
+                    frecuenciaVocales[letra]++;
+                }
+            }
+
+            // Mostrar los resultados
+            Console.WriteLine("Frecuencia de las vocales:");
+            foreach (var vocal in frecuenciaVocales)
+            {
+                Console.WriteLine($"La vocal '{vocal.Key}' aparece {vocal.Value} veces.");
+            }
+        }
+    }
+}
