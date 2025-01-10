@@ -1,0 +1,59 @@
+using System;
+
+namespace Palindromo
+{
+    // Clase para verificar si una palabra es palíndromo
+    public class VerificadorPalindromo
+    {
+        public string Palabra { get; set; }
+
+        // Constructor de la clase
+        public VerificadorPalindromo(string palabra)
+        {
+            Palabra = palabra.ToLower(); // Convertir la palabra a minúsculas para no distinguir entre mayúsculas y minúsculas
+        }
+
+        // Método para verificar si la palabra es un palíndromo
+        public bool EsPalindromo()
+        {
+            int inicio = 0;
+            int fin = Palabra.Length - 1;
+
+            while (inicio < fin)
+            {
+                // Comparar los caracteres desde los extremos hacia el centro
+                if (Palabra[inicio] != Palabra[fin])
+                {
+                    return false; // No es un palíndromo si los caracteres no coinciden
+                }
+                inicio++;
+                fin--;
+            }
+
+            return true; // Es un palíndromo si todos los caracteres coinciden
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            // Pedir al usuario una palabra
+            Console.Write("Introduce una palabra: ");
+            string palabra = Console.ReadLine();
+
+            // Crear una instancia de la clase VerificadorPalindromo
+            VerificadorPalindromo verificador = new VerificadorPalindromo(palabra);
+
+            // Verificar si la palabra es un palíndromo
+            if (verificador.EsPalindromo())
+            {
+                Console.WriteLine($"La palabra '{palabra}' es palíndromo.");
+            }
+            else
+            {
+                Console.WriteLine($"La palabra '{palabra}' no es palíndromo.");
+            }
+        }
+    }
+}
